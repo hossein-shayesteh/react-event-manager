@@ -1,3 +1,5 @@
+import React from "react";
+
 import NewsletterSignup from "../components/NewsletterSignup";
 import PageContent from "../components/PageContent";
 

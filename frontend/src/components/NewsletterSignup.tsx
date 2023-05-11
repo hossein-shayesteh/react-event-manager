@@ -3,15 +3,17 @@ import styles from "./NewsletterSignup.module.css";
 
 import { useFetcher } from "react-router-dom";
 
-function NewsletterSignup() {
+const NewsletterSignup = () => {
   const fetcher = useFetcher();
   const { data, state } = fetcher;
+
   useEffect(() => {
     if (state === "idle" && data && data.message) {
       window.alert(data.message);
       console.log(data);
     }
   }, [state, data]);
+
   return (
     <fetcher.Form
       method="post"
@@ -26,6 +28,6 @@ function NewsletterSignup() {
       <button>Sign up</button>
     </fetcher.Form>
   );
-}
+};
 
 export default NewsletterSignup;

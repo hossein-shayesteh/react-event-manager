@@ -1,10 +1,9 @@
 import React from "react";
+import PageContent from "../components/PageContent";
 
 const Home = () => {
   return (
-    <div className={"centered"}>
-      <h1>Welcome</h1>
-    </div>
+    <PageContent title={"Welcome"}>Browse all our amazing events.</PageContent>
   );
 };
 export default Home;

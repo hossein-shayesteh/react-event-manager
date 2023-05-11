@@ -13,7 +13,7 @@ export interface Event {
 export type Events = Events[];
 
 const Events = () => {
-  const { events } = useLoaderData() as { events: Events };
+  const { events } = useLoaderData() as { events: Events[] };
 
   return (
     <Suspense
@@ -34,6 +34,7 @@ export default Events;
 
 export const loadEvents = async () => {
   const response = await fetch("http://localhost:8080/events");
+
   if (!response.ok) {
     throw json({ message: "Could not fetch events!" }, { status: 500 });
   } else {

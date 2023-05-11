@@ -1,7 +1,12 @@
 import React from "react";
 import styles from "./PageContent.module.css";
 
-const PageContent = (props: { title: string; children: React.ReactNode }) => {
+interface PageContent {
+  title: string;
+  children: React.ReactNode;
+}
+
+const PageContent = (props: PageContent) => {
   return (
     <div className={styles.content}>
       <h1>{props.title}</h1>

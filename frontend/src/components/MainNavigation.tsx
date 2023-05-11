@@ -1,8 +1,10 @@
+import React from "react";
 import styles from "./MainNavigation.module.css";
+
 import { NavLink } from "react-router-dom";
 import NewsletterSignup from "./NewsletterSignup";
 
-function MainNavigation() {
+const MainNavigation = () => {
   return (
     <header className={styles.header}>
       <nav>
@@ -42,6 +44,6 @@ function MainNavigation() {
       <NewsletterSignup />
     </header>
   );
-}
+};
 
 export default MainNavigation;

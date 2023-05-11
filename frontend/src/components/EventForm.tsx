@@ -10,7 +10,12 @@ import {
 } from "react-router-dom";
 import { Event } from "../pages/Events";
 
-const EventForm = (props: { event: Event; method: "post" | "patch" }) => {
+interface EventForm {
+  event: Event;
+  method: "post" | "patch";
+}
+
+const EventForm = (props: EventForm) => {
   const navigate = useNavigate();
   const navigation = useNavigation();
 
@@ -29,8 +34,8 @@ const EventForm = (props: { event: Event; method: "post" | "patch" }) => {
           id="title"
           type="text"
           name="title"
-          // required
-          defaultValue={event ? event.title : ""}
+          required
+          defaultValue={event.title}
         />
       </p>
       <p>
@@ -40,7 +45,7 @@ const EventForm = (props: { event: Event; method: "post" | "patch" }) => {
           type="url"
           name="image"
           required
-          defaultValue={event ? event.image : ""}
+          defaultValue={event.image}
         />
       </p>
       <p>
@@ -50,7 +55,7 @@ const EventForm = (props: { event: Event; method: "post" | "patch" }) => {
           type="date"
           name="date"
           required
-          defaultValue={event ? event.date : ""}
+          defaultValue={event.date}
         />
       </p>
       <p>
@@ -60,7 +65,7 @@ const EventForm = (props: { event: Event; method: "post" | "patch" }) => {
           name="description"
           rows={5}
           required
-          defaultValue={event ? event.description : ""}
+          defaultValue={event.description}
         />
       </p>
       <div className={styles.actions}>
@@ -103,6 +108,7 @@ export const action = async ({ request, params }: any) => {
     },
     body: JSON.stringify(eventData),
   });
+
   if (!response.ok) {
     throw json({ message: "An error occurred during sending data." });
   }

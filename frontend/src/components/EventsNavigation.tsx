@@ -1,7 +1,9 @@
+import React from "react";
 import styles from "./EventsNavigation.module.css";
+
 import { Link } from "react-router-dom";
 
-function EventsNavigation() {
+const EventsNavigation = () => {
   return (
     <header className={styles.header}>
       <nav>
@@ -16,6 +18,6 @@ function EventsNavigation() {
       </nav>
     </header>
   );
-}
+};
 
 export default EventsNavigation;

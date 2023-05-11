@@ -1,8 +1,11 @@
+import React from "react";
 import styles from "./EventItem.module.css";
+
 import { Event } from "../pages/Events";
 import { Link, useSubmit } from "react-router-dom";
-function EventItem({ event }: { event: Event }) {
+const EventItem = ({ event }: { event: Event }) => {
   const submit = useSubmit();
+
   const handleDeleteItem = async () => {
     const proceed = window.confirm("Are You Sure?");
     if (proceed) {
@@ -22,6 +25,6 @@ function EventItem({ event }: { event: Event }) {
       </menu>
     </article>
   );
-}
+};
 
 export default EventItem;

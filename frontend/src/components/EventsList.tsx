@@ -1,9 +1,15 @@
+import React from "react";
 import styles from "./EventsList.module.css";
 
 import { Link } from "react-router-dom";
 import { Event } from "../pages/Events";
 
-function EventsList({ events }: any) {
+interface EventList {
+  events: Event[];
+}
+
+const EventsList = (props: EventList) => {
+  const events = props.events;
   return (
     <div className={styles.events}>
       <h1>All Events</h1>
@@ -22,6 +28,6 @@ function EventsList({ events }: any) {
       </ul>
     </div>
   );
-}
+};
 
 export default EventsList;

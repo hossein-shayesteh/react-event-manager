@@ -1,8 +1,9 @@
 import React from "react";
-import PageContent from "../components/PageContent";
 
+import PageContent from "../components/PageContent";
 import { useRouteError } from "react-router-dom";
 import MainNavigation from "../components/MainNavigation";
+
 export interface Error {
   data: { message: string };
   internal: boolean;
@@ -23,6 +24,7 @@ const Error = () => {
     title = "Not Found!";
     message = "Could not find resource or page.";
   }
+
   return (
     <>
       <MainNavigation />
