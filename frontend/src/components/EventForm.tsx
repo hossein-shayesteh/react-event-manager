@@ -9,6 +9,7 @@ import {
   redirect,
 } from "react-router-dom";
 import { Event } from "../pages/Events";
+import { getAuthToken } from "../utility/auth";
 
 interface EventForm {
   event: Event;
@@ -88,6 +89,7 @@ export default EventForm;
 export const action = async ({ request, params }: any) => {
   const method = request.method;
   const data = await request.formData();
+  const token = getAuthToken();
 
   const eventData = {
     title: data.get("title"),
@@ -105,6 +107,7 @@ export const action = async ({ request, params }: any) => {
     method: method,
     headers: {
       "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
     },
     body: JSON.stringify(eventData),
   });

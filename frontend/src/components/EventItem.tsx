@@ -2,8 +2,9 @@ import React from "react";
 import styles from "./EventItem.module.css";
 
 import { Event } from "../pages/Events";
-import { Link, useSubmit } from "react-router-dom";
+import { Link, useRouteLoaderData, useSubmit } from "react-router-dom";
 const EventItem = ({ event }: { event: Event }) => {
+  const token = useRouteLoaderData("root");
   const submit = useSubmit();
 
   const handleDeleteItem = async () => {
@@ -19,10 +20,14 @@ const EventItem = ({ event }: { event: Event }) => {
       <h1>{event.title}</h1>
       <time>{event.date}</time>
       <p>{event.description}</p>
-      <menu className={styles.actions}>
-        <Link to="edit">Edit</Link>
-        <button onClick={handleDeleteItem}>Delete</button>
-      </menu>
+      <>
+        {token && (
+          <menu className={styles.actions}>
+            <Link to="edit">Edit</Link>
+            <button onClick={handleDeleteItem}>Delete</button>
+          </menu>
+        )}
+      </>
     </article>
   );
 };

@@ -3,6 +3,7 @@ import React from "react";
 import { json, useRouteLoaderData, Outlet, redirect } from "react-router-dom";
 import EventItem from "../components/EventItem";
 import { Event } from "./Events";
+import { getAuthToken } from "../utility/auth";
 
 const EventDetail = () => {
   const loaderData = useRouteLoaderData("event-detail") as { event: Event };
@@ -31,10 +32,15 @@ export const loader = async ({ params }: any) => {
 };
 
 export const action = async ({ request, params }: any) => {
+  const token = getAuthToken();
+
   const response = await fetch(
     `http://localhost:8080/events/${params.eventId}`,
     {
       method: request.method,
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
     }
   );
 

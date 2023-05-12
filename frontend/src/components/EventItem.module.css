@@ -31,5 +31,5 @@
 .actions a:hover,
 .actions button:hover {
   background-color: var(--color-primary-300);
+  color: var(--color-gray-800);
 }
-
