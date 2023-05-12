@@ -1,8 +1,9 @@
 # React Event Manager
 
 This React application is built using Vite, React-Router, TypeScript, and CSS. It fetches and displays data from an external database, allowing users to easily view, add, and edit events. 
+
 NOTE: The frontend was developed independently while the backend was integrated from an external source.
-**
+
 
 
 ## Features
